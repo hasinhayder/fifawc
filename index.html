@@ -4,35 +4,18 @@
     <title>Fifa Football World Cup 2018 Fixture</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <style>
-        .teams ul li {
-            cursor: pointer;
-        }
-
-        .timezone {
-            padding: 100px 0px;
-        }
-
-        .fixtures-container {
-            margin-top: 50px;
-        }
-
-        table td, table th {
-            text-align: center;
-        }
-
-        .fixtures{
-            margin-bottom: 100px;
-        }
-    </style>
+    <link rel="shortcut icon" type="image/png" href="assets/img/favicon.png"/>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <h1 class="text-center">Fifa Football World Cup 2018 Fixture</h1>
-            <h5 class="text-center">Enjoy Matches In Your Local Time!</h5>
+            <div class="heading">
+                <h1 class="text-center">Fifa Football World Cup 2018 Fixture</h1>
+                <h5 class="text-center">Enjoy Matches In Your Local Time!</h5>
+            </div>
         </div>
     </div>
     <div class="row">
@@ -229,7 +212,6 @@
         </div>
 
 
-
     </div>
 </div>
 <div class="container">
@@ -290,8 +272,8 @@
                 <div class="text-center">
                     <a href="#" class="filter" data-filter="all">All Matches</a> |
                     <a href="#" class="filter" data-filter="k">Knockouts</a> |
-                    <a href="#" class="filter" data-filter="qf">Quarter finals</a> |
-                    <a href="#" class="filter" data-filter="sf">Semi finals</a> |
+                    <a href="#" class="filter" data-filter="qf">Quarter Finals</a> |
+                    <a href="#" class="filter" data-filter="sf">Semi Finals</a> |
                     <a href="#" class="filter" data-filter="f">Final</a>
                 </div>
             </div>
@@ -320,95 +302,22 @@
         </div>
     </div>
 </div>
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <p>
+                    Developed with love by Hasin Hayder
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
 
-<script
-        src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
-        crossorigin="anonymous"></script>
-<script src="assets/js/fixture.js"></script>
-<script src="assets/js/cc.js"></script>
-<script type="text/javascript">
-
-    $(document).ready(function () {
-        $("li").on("click", function () {
-            var c = $(this).attr('class');
-            $(".fixtures-body tr").hide();
-            $(".fixtures-body tr." + c).show();
-        });
-
-        $(".filter").on("click", function () {
-            var filter = $(this).data("filter");
-            $(".fixtures-body tr").hide();
-            $(".fixtures-body tr." + filter).show();
-        });
-
-        //console.log(countries);
-
-        for (var i in fixtures) {
-            var class1 = countries[fixtures[i].p1] ? countries[fixtures[i].p1].code : "w";
-            var class2 = countries[fixtures[i].p2] ? countries[fixtures[i].p2].code : "w";
-
-            var flag1 = countries[fixtures[i].p1] ? '<img class="mr-1" src="http://www.countryflags.io/'+countries[fixtures[i].p1].code+'/flat/32.png" alt="'+fixtures[i].p1+'">' : "";
-            var flag2 = countries[fixtures[i].p2] ? '<img class="mr-1" src="http://www.countryflags.io/'+countries[fixtures[i].p2].code+'/flat/32.png" alt="'+fixtures[i].p2+'">' : "";
-
-            var class3 = "";
-            if (i >= 49 && i <= 56) class3 = "k";
-            if (i >= 57 && i <= 60) class3 = "qf";
-            if (i >= 61 && i <= 62) class3 = "sf";
-            if (i == 63) class3 = "f";
-            var td0 = $("<td/>").html(i).attr("width", "5%");
-            var td1 = $("<td/>").html(flag1 + toTitleCase(fixtures[i].p1)).attr("width", "25%");
-            var td2 = $("<td/>").html(flag2 + toTitleCase(fixtures[i].p2)).attr("width", "25%");
-            var td3 = $("<td/>").html(fixtures[i].date).attr("width", "25%").addClass("date").data("date", fixtures[i].date);
-            var td4 = $("<td/>").html(fixtures[i].time).attr("width", "20%").addClass("time").data("t24", fixtures[i].time24);
-            $("<tr/>").attr("id", "g" + fixtures[i].id).append([td0, td1, td2, td3, td4]).data({
-                "p1": fixtures[i].p1,
-                "p2": fixtures[i].p2,
-                "t24": fixtures[i].time24,
-                "t": fixtures[i].time,
-                "d": fixtures[i].date
-            }).addClass(['all', class1, class2, class3]).appendTo($(".fixtures-body"));
-        }
-
-        $("#timezone").on('change', function () {
-            var tz = parseFloat($(this).val());
-            var tzMinutes = (tz - parseInt(tz)) * 60;
-            tzMinutes = tzMinutes ? tzMinutes : "00";
-            var tzHours = parseInt(tz);
-            if (tz > 0) {
-                $(".fixtures-time-heading").html("Time (UTC/GMT + " + tzHours + ":" + tzMinutes + ")");
-            } else {
-                $(".fixtures-time-heading").html("Time (UTC/GMT - " + Math.abs(tzHours) + ":" + tzMinutes + ")");
-            }
-            convertTimeZone(tz);
-        });
-
-        convertTimeZone(); //Let's Set time to Bangladesh Time
-
-    });
-
-
-    function convertTimeZone(tz = "6") {
-        $(".fixtures-body tr").each(function () {
-            var date = $(this).find(".date").data("date");
-            var time = $(this).find(".time").data("t24");
-            var dt = new Date(date + " " + time);
-            dt.setTime(dt.getTime() + parseFloat(tz) * 3600 * 1000);
-            var newDate = dt.toLocaleString('en-US', {month: "long"}) + " " + dt.getDate() + ", " + dt.getFullYear();
-            var newTime = dt.toLocaleString('en-US', {hour: 'numeric', hour12: true, minute: 'numeric'});
-            $(this).find(".date").html(newDate);
-            $(this).find(".time").html(newTime);
-        });
-    }
-
-    function toTitleCase(str) {
-        return str.replace(/\w\S*/g, function(txt){
-            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-        });
-    }
-
-
-</script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script type="text/javascript" src="assets/js/fixture.js"></script>
+<script type="text/javascript" src="assets/js/cc.js"></script>
+<script type="text/javascript" src="assets/js/engine.js"></script>
 </body>
 </html>
 

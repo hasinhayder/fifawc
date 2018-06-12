@@ -1,0 +1,32 @@
+.heading {
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+.teams ul li {
+    cursor: pointer;
+}
+
+.timezone {
+    padding: 100px 0px 40px 0px;
+}
+
+.timezone select {
+    margin-bottom: 10px;
+}
+
+.timezone a {
+    color: #456;
+}
+
+.fixtures-container {
+    margin-top: 50px;
+}
+
+table td, table th {
+    text-align: center;
+}
+
+.fixtures {
+    margin-bottom: 100px;
+}
