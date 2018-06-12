@@ -43,6 +43,20 @@ table td, table th {
     color: #eee;
 }
 
+/* Contributed by Faridul Haque https://www.facebook.com/googoling */
 .footer a{
     color: #eee;
 }
+
+.table td, .table th {
+    vertical-align: middle;
+}
+
+table td, table th {
+    text-align: left;
+}
+
+.mr-1, .mx-1 {
+    margin-right: .65rem!important;
+}
+/* Contribution End */
