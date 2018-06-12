@@ -27,8 +27,8 @@ foreach ( $ccarray as $c => $v ) {
                         foreach ( $group as $country=>$code ) {
                             ?>
                             <li class="<?php echo $code; ?>">
-                                <img src="http://www.countryflags.io/<?php echo $code; ?>/flat/32.png" alt="<?php echo $country ?>">
-                                <span><?php echo $country; ?></span>
+                                <img src="http://www.countryflags.io/<?php echo $code; ?>/flat/32.png" alt="<?php echo ucwords($country); ?>">
+                                <span><?php echo ucwords($country); ?></span>
                             </li>
                             <?php
                         }
