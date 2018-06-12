@@ -29,9 +29,10 @@
             var flag2 = countries[fixtures[i].p2] ? '<img class="mr-1" src="http://www.countryflags.io/' + countries[fixtures[i].p2].code + '/flat/32.png" alt="' + fixtures[i].p2 + '">' : "";
 
             var class3 = "";
-            if (i >= 49 && i <= 56) class3 = "k";
-            if (i >= 57 && i <= 60) class3 = "qf";
-            if (i >= 61 && i <= 62) class3 = "sf";
+            if (i >= 49 && i <= 55) class3 = "k";
+            if (i >= 56 && i <= 59) class3 = "qf";
+            if (i >= 60 && i <= 61) class3 = "sf";
+            if (i == 62) class3 = "tf";
             if (i == 63) class3 = "f";
             var td0 = $("<td/>").html(i).attr("width", "5%");
             var td1 = $("<td/>").html(flag1 + toTitleCase(fixtures[i].p1)).attr("width", "25%");
