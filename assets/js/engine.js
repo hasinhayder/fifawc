@@ -11,6 +11,7 @@
             var c = $(this).attr('class');
             $(".fixtures-body tr").hide();
             $(".fixtures-body tr." + c).show();
+            window.scrollTo(0, 500);
         });
 
         $(".filter").on("click", function () {
