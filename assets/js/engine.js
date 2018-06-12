@@ -1,3 +1,10 @@
+/**
+ * Fifa WorldCup 2018 Fixture Project
+ * Developed by Hasin Hayder From HappyMonster
+ * Author url: https://hasin.me & https://happymonster.me
+ * Released under MIT license
+ **/
+
 ;(function ($) {
     $(document).ready(function () {
         $("li").on("click", function () {

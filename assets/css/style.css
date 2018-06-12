@@ -1,3 +1,9 @@
+/**
+ * Fifa WorldCup 2018 Fixture Project
+ * Developed by Hasin Hayder From HappyMonster
+ * Author url: https://hasin.me & https://happymonster.me
+ * Released under MIT license
+**/
 .heading {
     margin-top: 60px;
     margin-bottom: 60px;
@@ -29,4 +35,14 @@ table td, table th {
 
 .fixtures {
     margin-bottom: 100px;
+}
+
+.footer{
+    padding: 26px 0px 15px 0px;
+    background-color: #222;
+    color: #eee;
+}
+
+.footer a{
+    color: #eee;
 }
