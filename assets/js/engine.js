@@ -30,7 +30,7 @@
             var flag2 = countries[fixtures[i].p2] ? '<img class="mr-1" src="http://www.countryflags.io/' + countries[fixtures[i].p2].code + '/flat/32.png" alt="' + fixtures[i].p2 + '">' : "";
 
             var class3 = "";
-            if (i >= 49 && i <= 55) class3 = "k";
+            if (i >= 48 && i <= 55) class3 = "k";
             if (i >= 56 && i <= 59) class3 = "qf";
             if (i >= 60 && i <= 61) class3 = "sf";
             if (i == 62) class3 = "tf";
