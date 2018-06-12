@@ -1,12 +1,12 @@
 let countries = {
-    
+
     //a
     "russia":{
         "code":"ru",
         "group":"a"
     },
     "saudi arabia":{
-        "code":"",
+        "code":"sa",
         "group":"a"
     },
     "egypt":{
