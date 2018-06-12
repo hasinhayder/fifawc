@@ -34,11 +34,11 @@
             if (i >= 60 && i <= 61) class3 = "sf";
             if (i == 62) class3 = "tf";
             if (i == 63) class3 = "f";
-            var td0 = $("<td/>").html(i).attr("width", "5%");
+            var td0 = $("<td/>").html(i*1+1).attr("width", "5%");
             var td1 = $("<td/>").html(flag1 + toTitleCase(fixtures[i].p1)).attr("width", "25%");
             var td2 = $("<td/>").html(flag2 + toTitleCase(fixtures[i].p2)).attr("width", "25%");
             var td3 = $("<td/>").html(fixtures[i].date).attr("width", "25%").addClass("date").data("date", fixtures[i].date);
-            var td4 = $("<td/>").html(fixtures[i].time).attr("width", "20%").addClass("time").data("t24", fixtures[i].time24);
+            var td4 = $("<td/>").html(fixtures[i].time).attr("width", "20%").addClass("time").data("t24", fixtures[i].time24).data("t", fixtures[i].time);
             $("<tr/>").attr("id", "g" + fixtures[i].id).append([td0, td1, td2, td3, td4]).data({
                 "p1": fixtures[i].p1,
                 "p2": fixtures[i].p2,
@@ -61,7 +61,7 @@
             convertTimeZone(tz);
         });
 
-        convertTimeZone(); //Let's Set time to Bangladesh Time
+        convertTimeZone(6); //Let's Set time to Bangladesh Time
 
     });
 })(jQuery);
@@ -69,7 +69,7 @@
 function convertTimeZone(tz = "6") {
     $(".fixtures-body tr").each(function () {
         var date = $(this).find(".date").data("date");
-        var time = $(this).find(".time").data("t24");
+        var time = $(this).find(".time").data("t");
         var dt = new Date(date + " " + time);
         dt.setTime(dt.getTime() + parseFloat(tz) * 3600 * 1000);
         var newDate = dt.toLocaleString('en-US', {month: "long"}) + " " + dt.getDate() + ", " + dt.getFullYear();
