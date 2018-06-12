@@ -25,28 +25,34 @@
         for (var i in fixtures) {
             var class1 = countries[fixtures[i].p1] ? countries[fixtures[i].p1].code : "w";
             var class2 = countries[fixtures[i].p2] ? countries[fixtures[i].p2].code : "w";
+            var class3 = "";
 
             var flag1 = countries[fixtures[i].p1] ? '<img class="mr-1" src="http://www.countryflags.io/' + countries[fixtures[i].p1].code + '/flat/32.png" alt="' + fixtures[i].p1 + '">' : "";
             var flag2 = countries[fixtures[i].p2] ? '<img class="mr-1" src="http://www.countryflags.io/' + countries[fixtures[i].p2].code + '/flat/32.png" alt="' + fixtures[i].p2 + '">' : "";
 
-            var class3 = "";
             if (i >= 48 && i <= 55) class3 = "k";
-            if (i >= 56 && i <= 59) class3 = "qf";
-            if (i >= 60 && i <= 61) class3 = "sf";
-            if (i == 62) class3 = "tf";
-            if (i == 63) class3 = "f";
+            else if (i >= 56 && i <= 59) class3 = "qf";
+            else if (i >= 60 && i <= 61) class3 = "sf";
+            else if (i == 62) class3 = "tf";
+            else if (i == 63) class3 = "f";
+
             var td0 = $("<td/>").html(i * 1 + 1).attr("width", "5%");
             var td1 = $("<td/>").html(flag1 + toTitleCase(fixtures[i].p1)).attr("width", "25%");
             var td2 = $("<td/>").html(flag2 + toTitleCase(fixtures[i].p2)).attr("width", "25%");
             var td3 = $("<td/>").html(fixtures[i].date).attr("width", "25%").addClass("date").data("date", fixtures[i].date);
             var td4 = $("<td/>").html(fixtures[i].time).attr("width", "20%").addClass("time").data("t24", fixtures[i].time24).data("t", fixtures[i].time);
-            $("<tr/>").attr("id", "g" + (i * 1 + 1)).append([td0, td1, td2, td3, td4]).data({
-                "p1": fixtures[i].p1,
-                "p2": fixtures[i].p2,
-                "t24": fixtures[i].time24,
-                "t": fixtures[i].time,
-                "d": fixtures[i].date
-            }).addClass(['all', class1, class2, class3]).appendTo($(".fixtures-body"));
+
+            $("<tr/>").attr("id", "g" + (i * 1 + 1))
+                .append([td0, td1, td2, td3, td4])
+                .data({
+                    "p1": fixtures[i].p1,
+                    "p2": fixtures[i].p2,
+                    "t24": fixtures[i].time24,
+                    "t": fixtures[i].time,
+                    "d": fixtures[i].date
+                })
+                .addClass(['all', class1, class2, class3])
+                .appendTo($(".fixtures-body"));
         }
 
         $("#timezone").on('change', function () {
