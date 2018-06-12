@@ -217,7 +217,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <div class="timezone text-center">
+            <div class="timezone text-center" id="timezone-container">
                 <select name="timezone" id="timezone">
                     <option value="-12">[UTC/GMT - 12] Baker Island Time</option>
                     <option value="-11">[UTC/GMT - 11] Niue Time, Samoa Standard Time</option>
@@ -270,11 +270,12 @@
                     <option value="14">[UTC/GMT + 14] Line Island Time</option>
                 </select>
                 <div class="text-center">
-                    <a href="#" class="filter" data-filter="all">All Matches</a> |
-                    <a href="#" class="filter" data-filter="k">Knockouts</a> |
-                    <a href="#" class="filter" data-filter="qf">Quarter Finals</a> |
-                    <a href="#" class="filter" data-filter="sf">Semi Finals</a> |
-                    <a href="#" class="filter" data-filter="f">Final</a>
+                    <a href="#timezone-container" class="filter" data-filter="all">All Matches</a> |
+                    <a href="#timezone-container" class="filter" data-filter="k">Knockouts</a> |
+                    <a href="#timezone-container" class="filter" data-filter="qf">Quarter Finals</a> |
+                    <a href="#timezone-container" class="filter" data-filter="sf">Semi Finals</a> |
+                    <a href="#timezone-container" class="filter" data-filter="tf">Third Place</a> |
+                    <a href="#timezone-container" class="filter" data-filter="f">Final</a>
                 </div>
             </div>
         </div>
