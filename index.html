@@ -1,0 +1,297 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Fifa Football World Cup 2018 Fixture</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        .teams ul li{
+            cursor: pointer;
+        }
+        .timezone{
+            padding:100px 0px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="timezone text-center">
+            <select name="timezone" id="timezone">
+                <option value="-12">[UTC - 12] Baker Island Time</option>
+                <option value="-11">[UTC - 11] Niue Time, Samoa Standard Time</option>
+                <option value="-10">[UTC - 10] Hawaii-Aleutian Standard Time, Cook Island Time</option>
+                <option value="-9.5">[UTC - 9:30] Marquesas Islands Time</option>
+                <option value="-9">[UTC - 9] Alaska Standard Time, Gambier Island Time</option>
+                <option value="-8">[UTC - 8] Pacific Standard Time</option>
+                <option value="-7">[UTC - 7] Mountain Standard Time</option>
+                <option value="-6">[UTC - 6] Central Standard Time</option>
+                <option value="-5">[UTC - 5] Eastern Standard Time</option>
+                <option value="-4.5">[UTC - 4:30] Venezuelan Standard Time</option>
+                <option value="-4">[UTC - 4] Atlantic Standard Time</option>
+                <option value="-3.5">[UTC - 3:30] Newfoundland Standard Time</option>
+                <option value="-3">[UTC - 3] Amazon Standard Time, Central Greenland Time</option>
+                <option value="-2">[UTC - 2] Fernando de Noronha Time, South Georgia &amp; the South Sandwich Islands Time</option>
+                <option value="-1">[UTC - 1] Azores Standard Time, Cape Verde Time, Eastern Greenland Time</option>
+                <option value="0" selected="selected">[UTC] Western European Time, Greenwich Mean Time</option>
+                <option value="1">[UTC + 1] Central European Time, West African Time</option>
+                <option value="2">[UTC + 2] Eastern European Time, Central African Time</option>
+                <option value="3">[UTC + 3] Moscow Standard Time, Eastern African Time</option>
+                <option value="3.5">[UTC + 3:30] Iran Standard Time</option>
+                <option value="4">[UTC + 4] Gulf Standard Time, Samara Standard Time</option>
+                <option value="4.5">[UTC + 4:30] Afghanistan Time</option>
+                <option value="5">[UTC + 5] Pakistan Standard Time, Yekaterinburg Standard Time</option>
+                <option value="5.5">[UTC + 5:30] Indian Standard Time, Sri Lanka Time</option>
+                <option value="5.75">[UTC + 5:45] Nepal Time</option>
+                <option value="6" selected>[UTC + 6] Bangladesh Time, Bhutan Time, Novosibirsk Standard Time</option>
+                <option value="6.5">[UTC + 6:30] Cocos Islands Time, Myanmar Time</option>
+                <option value="7">[UTC + 7] Indochina Time, Krasnoyarsk Standard Time</option>
+                <option value="8">[UTC + 8] Chinese Standard Time, Australian Western Standard Time, Irkutsk Standard Time</option>
+                <option value="8.75">[UTC + 8:45] Southeastern Western Australia Standard Time</option>
+                <option value="9">[UTC + 9] Japan Standard Time, Korea Standard Time, Chita Standard Time</option>
+                <option value="9.5">[UTC + 9:30] Australian Central Standard Time</option>
+                <option value="10">[UTC + 10] Australian Eastern Standard Time, Vladivostok Standard Time</option>
+                <option value="10.5">[UTC + 10:30] Lord Howe Standard Time</option>
+                <option value="11">[UTC + 11] Solomon Island Time, Magadan Standard Time</option>
+                <option value="11.5">[UTC + 11:30] Norfolk Island Time</option>
+                <option value="12">[UTC + 12] New Zealand Time, Fiji Time, Kamchatka Standard Time</option>
+                <option value="12.75">[UTC + 12:45] Chatham Islands Time</option>
+                <option value="13">[UTC + 13] Tonga Time, Phoenix Islands Time</option>
+                <option value="14">[UTC + 14] Line Island Time</option>
+            </select>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="teams">
+                <h1 class="teams-title">Group A</h1>
+                <ul>
+                    <li>
+                        <img src="http://www.countryflags.io/ru/flat/32.png" alt="russia">
+                        <span>russia</span>
+                    </li>
+                    <li>
+                        <img src="http://www.countryflags.io/sa/flat/32.png" alt="saudi arabia">
+                        <span>saudi arabia</span>
+                    </li>
+                    <li>
+                        <img src="http://www.countryflags.io/eg/flat/32.png" alt="egypt">
+                        <span>egypt</span>
+                    </li>
+                    <li>
+                        <img src="http://www.countryflags.io/uy/flat/32.png" alt="uruguay">
+                        <span>uruguay</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="teams">
+                <h1 class="teams-title">Group B</h1>
+                <ul>
+                    <li>
+                        <img src="http://www.countryflags.io/pt/flat/32.png" alt="portugal">
+                        <span>portugal</span>
+                    </li>
+                    <li>
+                        <img src="http://www.countryflags.io/es/flat/32.png" alt="spain">
+                        <span>spain</span>
+                    </li>
+                    <li>
+                        <img src="http://www.countryflags.io/ma/flat/32.png" alt="morocco">
+                        <span>morocco</span>
+                    </li>
+                    <li>
+                        <img src="http://www.countryflags.io/ir/flat/32.png" alt="iran">
+                        <span>iran</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="teams">
+                <h1 class="teams-title">Group C</h1>
+                <ul>
+                    <li>
+                        <img src="http://www.countryflags.io/fr/flat/32.png" alt="france">
+                        <span>france</span>
+                    </li>
+                    <li>
+                        <img src="http://www.countryflags.io/au/flat/32.png" alt="australia">
+                        <span>australia</span>
+                    </li>
+                    <li>
+                        <img src="http://www.countryflags.io/pe/flat/32.png" alt="peru">
+                        <span>peru</span>
+                    </li>
+                    <li>
+                        <img src="http://www.countryflags.io/dk/flat/32.png" alt="denmark">
+                        <span>denmark</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="teams">
+                <h1 class="teams-title">Group D</h1>
+                <ul>
+                    <li>
+                        <img src="http://www.countryflags.io/ar/flat/32.png" alt="argentina">
+                        <span>argentina</span>
+                    </li>
+                    <li>
+                        <img src="http://www.countryflags.io/is/flat/32.png" alt="iceland">
+                        <span>iceland</span>
+                    </li>
+                    <li>
+                        <img src="http://www.countryflags.io/hr/flat/32.png" alt="croatia">
+                        <span>croatia</span>
+                    </li>
+                    <li>
+                        <img src="http://www.countryflags.io/ng/flat/32.png" alt="nigeria">
+                        <span>nigeria</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="teams">
+                <h1 class="teams-title">Group E</h1>
+                <ul>
+                    <li>
+                        <img src="http://www.countryflags.io/br/flat/32.png" alt="brazil">
+                        <span>brazil</span>
+                    </li>
+                    <li>
+                        <img src="http://www.countryflags.io/ch/flat/32.png" alt="switzerland">
+                        <span>switzerland</span>
+                    </li>
+                    <li>
+                        <img src="http://www.countryflags.io/cr/flat/32.png" alt="costa rica">
+                        <span>costa rica</span>
+                    </li>
+                    <li>
+                        <img src="http://www.countryflags.io/rs/flat/32.png" alt="serbia">
+                        <span>serbia</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="teams">
+                <h1 class="teams-title">Group F</h1>
+                <ul>
+                    <li>
+                        <img src="http://www.countryflags.io/de/flat/32.png" alt="germany">
+                        <span>germany</span>
+                    </li>
+                    <li>
+                        <img src="http://www.countryflags.io/mx/flat/32.png" alt="mexico">
+                        <span>mexico</span>
+                    </li>
+                    <li>
+                        <img src="http://www.countryflags.io/se/flat/32.png" alt="sweden">
+                        <span>sweden</span>
+                    </li>
+                    <li>
+                        <img src="http://www.countryflags.io/kr/flat/32.png" alt="south korea">
+                        <span>south korea</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="teams">
+                <h1 class="teams-title">Group G</h1>
+                <ul>
+                    <li>
+                        <img src="http://www.countryflags.io/be/flat/32.png" alt="belgium">
+                        <span>belgium</span>
+                    </li>
+                    <li>
+                        <img src="http://www.countryflags.io/pa/flat/32.png" alt="panama">
+                        <span>panama</span>
+                    </li>
+                    <li>
+                        <img src="http://www.countryflags.io/tn/flat/32.png" alt="tunisia">
+                        <span>tunisia</span>
+                    </li>
+                    <li>
+                        <img src="http://www.countryflags.io/gb/flat/32.png" alt="england">
+                        <span>england</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="teams">
+                <h1 class="teams-title">Group H</h1>
+                <ul>
+                    <li>
+                        <img src="http://www.countryflags.io/pl/flat/32.png" alt="poland">
+                        <span>poland</span>
+                    </li>
+                    <li>
+                        <img src="http://www.countryflags.io/sn/flat/32.png" alt="senegal">
+                        <span>senegal</span>
+                    </li>
+                    <li>
+                        <img src="http://www.countryflags.io/co/flat/32.png" alt="colombia">
+                        <span>colombia</span>
+                    </li>
+                    <li>
+                        <img src="http://www.countryflags.io/jp/flat/32.png" alt="japan">
+                        <span>japan</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="fixtures">
+
+</div>
+<script
+        src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+        crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+   $("li").on("click",function(){
+        alert($(this).find("span").html());
+   });
+});
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
