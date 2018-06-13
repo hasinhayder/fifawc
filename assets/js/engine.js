@@ -4,7 +4,7 @@
  * Author url: https://hasin.me & https://happymonster.me
  * Released under MIT license
  **/
-
+var urlParams;
 ;(function ($) {
     $(document).ready(function () {
         $("li").on("click", function () {
@@ -70,6 +70,12 @@
 
         convertTimeZone(6); //Let's Set time to Bangladesh Time
 
+        //process query strings like http://fifawc.xyz/?utc=2
+        //process query strings like http://fifawc.xyz/?utc=-4
+        if(urlParams['utc']){
+            $("#timezone").val(urlParams['utc']).trigger('change');
+        }
+
     });
 })(jQuery);
 
@@ -91,3 +97,20 @@ function toTitleCase(str) {
         return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
     });
 }
+
+//parse query strings
+//thanks to https://stackoverflow.com/a/2880929/727268
+(window.onpopstate = function () {
+    var match,
+        pl = /\+/g,  // Regex for replacing addition symbol with a space
+        search = /([^&=]+)=?([^&]*)/g,
+        decode = function (s) {
+            return decodeURIComponent(s.replace(pl, " "));
+        },
+        query = window.location.search.substring(1);
+
+    urlParams = {};
+    while (match = search.exec(query))
+        urlParams[decode(match[1])] = decode(match[2]);
+})();
+
