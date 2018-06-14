@@ -9,7 +9,9 @@
     margin-bottom: 60px;
 }
 
-.teams ul li {
+.teams ul li,
+td:nth-child(2),
+td:nth-child(3) {
     cursor: pointer;
 }
 
