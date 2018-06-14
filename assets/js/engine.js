@@ -7,12 +7,6 @@
 var urlParams;
 ;(function ($) {
     $(document).ready(function () {
-        $("li").on("click", function () {
-            var c = $(this).attr('class');
-            $(".fixtures-body tr").hide();
-            $(".fixtures-body tr." + c).show();
-            window.scrollTo(0, 500);
-        });
 
         $(".filter").on("click", function () {
             var filter = $(this).data("filter");
@@ -23,8 +17,8 @@ var urlParams;
         //console.log(countries);
 
         for (var i in fixtures) {
-            var class1 = countries[fixtures[i].p1] ? countries[fixtures[i].p1].code : "w";
-            var class2 = countries[fixtures[i].p2] ? countries[fixtures[i].p2].code : "w";
+            var team1 = countries[fixtures[i].p1] ? countries[fixtures[i].p1].code : "w";
+            var team2 = countries[fixtures[i].p2] ? countries[fixtures[i].p2].code : "w";
             var class3 = "";
 
             var flag1 = countries[fixtures[i].p1] ? '<img class="mr-1" src="http://www.countryflags.io/' + countries[fixtures[i].p1].code + '/flat/32.png" alt="' + fixtures[i].p1 + '">' : "";
@@ -37,8 +31,8 @@ var urlParams;
             else if (i == 63) class3 = "f";
 
             var td0 = $("<td/>").html(i * 1 + 1).attr("width", "5%");
-            var td1 = $("<td/>").html(flag1 + toTitleCase(fixtures[i].p1)).attr("width", "25%");
-            var td2 = $("<td/>").html(flag2 + toTitleCase(fixtures[i].p2)).attr("width", "25%");
+            var td1 = $("<td/>").attr('class', team1).html(flag1 + toTitleCase(fixtures[i].p1)).attr("width", "25%");
+            var td2 = $("<td/>").attr('class', team2).html(flag2 + toTitleCase(fixtures[i].p2)).attr("width", "25%");
             var td3 = $("<td/>").html(fixtures[i].date).attr("width", "25%").addClass("date").data("date", fixtures[i].date);
             var td4 = $("<td/>").html(fixtures[i].time).attr("width", "20%").addClass("time").data("t24", fixtures[i].time24).data("t", fixtures[i].time);
 
@@ -51,8 +45,20 @@ var urlParams;
                     "t": fixtures[i].time,
                     "d": fixtures[i].date
                 })
-                .addClass(['all', class1, class2, class3])
+                .addClass(['all', team1, team2, class3])
                 .appendTo($(".fixtures-body"));
+
+
+                var filter_callback = function () {
+                    var c = $(this).attr('class');
+                    $(".fixtures-body tr").hide();
+                    $(".fixtures-body tr." + c).show();
+                    window.scrollTo(0, 500);
+                };
+
+                $("li").on("click", filter_callback);
+                $("td:nth-child(2)").on("click", filter_callback);
+                $("td:nth-child(3)").on("click", filter_callback);
         }
 
         $("#timezone").on('change', function () {
@@ -113,4 +119,3 @@ function toTitleCase(str) {
     while (match = search.exec(query))
         urlParams[decode(match[1])] = decode(match[2]);
 })();
-
