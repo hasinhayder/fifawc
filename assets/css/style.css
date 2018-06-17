@@ -62,3 +62,11 @@ table td, table th {
     margin-right: .65rem!important;
 }
 /* Contribution End */
+
+.match-completed {
+    background-color: rgb(223, 219, 219);
+}
+
+.match-current {
+    background-color: rgb(159, 211, 162);
+}
