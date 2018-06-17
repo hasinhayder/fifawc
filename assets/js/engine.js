@@ -16,7 +16,7 @@ var urlParams;
 
         //console.log(countries);
 
-        for (var i in fixtures) {
+        for (var i in fixtures) {        
             var team1 = countries[fixtures[i].p1] ? countries[fixtures[i].p1].code : "w";
             var team2 = countries[fixtures[i].p2] ? countries[fixtures[i].p2].code : "w";
             var class3 = "";
@@ -46,6 +46,7 @@ var urlParams;
                     "d": fixtures[i].date
                 })
                 .addClass(['all', team1, team2, class3])
+                // .addClass([matchFlag])
                 .appendTo($(".fixtures-body"));
 
 
@@ -85,7 +86,10 @@ var urlParams;
     });
 })(jQuery);
 
+
 function convertTimeZone(tz = "6") {
+    const currentDate = new Date();
+    // currentDate.setTime(currentDate.getTime() + parseFloat(tz) * 3600 * 1000);
     $(".fixtures-body tr").each(function () {
         var date = $(this).find(".date").data("date");
         var time = $(this).find(".time").data("t");
@@ -95,6 +99,19 @@ function convertTimeZone(tz = "6") {
         var newTime = dt.toLocaleString('en-US', {hour: 'numeric', hour12: true, minute: 'numeric'});
         $(this).find(".date").html(newDate);
         $(this).find(".time").html(newTime);
+
+        const matchDate = new Date(newDate + " " + newTime);
+        if(currentDate > matchDate){
+            $(this).addClass(["match-completed"]);
+        }else {
+            $(this).removeClass("match-completed");
+        }
+
+        if(currentDate.getDate() === matchDate.getDate()){
+            $(this).addClass(["match-current"]);
+        }else {
+            $(this).removeClass("match-current");
+        }
     });
 }
 
