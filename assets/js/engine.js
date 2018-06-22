@@ -4,7 +4,7 @@
  * Author url: https://hasin.me & https://happymonster.me
  * Released under MIT license
  **/
-var urlParams;
+var urlParams, results = {};
 ;(function ($) {
     $(document).ready(function () {
 
@@ -14,12 +14,28 @@ var urlParams;
             $(".fixtures-body tr." + filter).show();
         });
 
-        //console.log(countries);
+        function filter_callback() {
+            var c = $(this).attr('class');
+            $(".fixtures-body tr").hide();
+            $(".fixtures-body tr." + c).show();
+            window.scrollTo(0, 500);
+        };
 
-        for (var i in fixtures) {        
+        $("li").on("click", filter_callback);
+
+        for (var i in fixtures) {
             var team1 = countries[fixtures[i].p1] ? countries[fixtures[i].p1].code : "w";
             var team2 = countries[fixtures[i].p2] ? countries[fixtures[i].p2].code : "w";
-            var class3 = "";
+
+            var score = "", score1 = "", score2 = "", class3 = "", result = "";
+
+            if (team1 && team2) {
+                score = scores[team1 + "-" + team2];
+                score1 = score ? " (" + score[team1] + ") " : "";
+                score2 = score ? " (" + score[team2] + ") " : "";
+                result = toTitleCase(fixtures[i].p1) + score1 + "\n" + toTitleCase(fixtures[i].p2) + score2;
+                results[team1 + "-" + team2] = result;
+            }
 
             var flag1 = countries[fixtures[i].p1] ? '<img class="mr-1" src="http://www.countryflags.io/' + countries[fixtures[i].p1].code + '/flat/32.png" alt="' + fixtures[i].p1 + '">' : "";
             var flag2 = countries[fixtures[i].p2] ? '<img class="mr-1" src="http://www.countryflags.io/' + countries[fixtures[i].p2].code + '/flat/32.png" alt="' + fixtures[i].p2 + '">' : "";
@@ -31,8 +47,8 @@ var urlParams;
             else if (i == 63) class3 = "f";
 
             var td0 = $("<td/>").html(i * 1 + 1).attr("width", "5%");
-            var td1 = $("<td/>").attr('class', team1).html(flag1 + toTitleCase(fixtures[i].p1)).attr("width", "25%");
-            var td2 = $("<td/>").attr('class', team2).html(flag2 + toTitleCase(fixtures[i].p2)).attr("width", "25%");
+            var td1 = $("<td/>").attr('class', team1).html(flag1 + toTitleCase(fixtures[i].p1) + score1).attr("width", "25%").data("game", team1 + "-" + team2).on("click", filter_callback);
+            var td2 = $("<td/>").attr('class', team2).html(flag2 + toTitleCase(fixtures[i].p2) + score2).attr("width", "25%").data("game", team1 + "-" + team2).on("click", filter_callback);
             var td3 = $("<td/>").html(fixtures[i].date).attr("width", "25%").addClass("date").data("date", fixtures[i].date);
             var td4 = $("<td/>").html(fixtures[i].time).attr("width", "20%").addClass("time").data("t24", fixtures[i].time24).data("t", fixtures[i].time);
 
@@ -46,20 +62,7 @@ var urlParams;
                     "d": fixtures[i].date
                 })
                 .addClass(['all', team1, team2, class3])
-                // .addClass([matchFlag])
                 .appendTo($(".fixtures-body"));
-
-
-                var filter_callback = function () {
-                    var c = $(this).attr('class');
-                    $(".fixtures-body tr").hide();
-                    $(".fixtures-body tr." + c).show();
-                    window.scrollTo(0, 500);
-                };
-
-                $("li").on("click", filter_callback);
-                $("td:nth-child(2)").on("click", filter_callback);
-                $("td:nth-child(3)").on("click", filter_callback);
         }
 
         $("#timezone").on('change', function () {
@@ -79,13 +82,22 @@ var urlParams;
 
         //process query strings like http://fifawc.xyz/?utc=2
         //process query strings like http://fifawc.xyz/?utc=-4
-        if(urlParams['utc']){
+        if (urlParams['utc']) {
             $("#timezone").val(urlParams['utc']).trigger('change');
         }
 
     });
 })(jQuery);
 
+function score_callback() {
+    var teams = $(this).data("game");
+    console.log(results);
+    var result = results[teams];
+    if (result) {
+        alert(result);
+    }
+
+}
 
 function convertTimeZone(tz = "6") {
     const currentDate = new Date();
@@ -101,15 +113,15 @@ function convertTimeZone(tz = "6") {
         $(this).find(".time").html(newTime);
 
         const matchDate = new Date(newDate + " " + newTime);
-        if(currentDate > matchDate){
+        if (currentDate > matchDate) {
             $(this).addClass(["match-completed"]);
-        }else {
+        } else {
             $(this).removeClass("match-completed");
         }
 
-        if(currentDate.getDate() === matchDate.getDate()){
+        if (currentDate.getDate() === matchDate.getDate()) {
             $(this).addClass(["match-current"]);
-        }else {
+        } else {
             $(this).removeClass("match-current");
         }
     });
