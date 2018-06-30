@@ -343,57 +343,57 @@ let fixtures = [{
         "time24": "18:00"
     }, {
         "id": "50", //49
-        "p1": "winner group c",
-        "p2": "runner-up group d",
+        "p1": "france",
+        "p2": "argentina",
         "date": "June 30, 2018",
         "time": "2:00 PM",
         "time24": "14:00"
     }, {
         "id": "49", //50
-        "p1": "winner group a",
-        "p2": "runner-up group b",
+        "p1": "uruguay",
+        "p2": "portugal",
         "date": "June 30, 2018",
         "time": "6:00 PM",
         "time24": "18:00"
     }, {
         "id": "51", //51
-        "p1": "winner group b",
-        "p2": "runner-up group a",
+        "p1": "spain",
+        "p2": "russia",
         "date": "July 1, 2018",
         "time": "2:00 PM",
         "time24": "14:00"
     }, {
         "id": "52", //52
-        "p1": "winner group d",
-        "p2": "runner-up group c",
+        "p1": "croatia",
+        "p2": "denmark",
         "date": "July 1, 2018",
         "time": "6:00 PM",
         "time24": "18:00"
     }, {
         "id": "53", //53
-        "p1": "winner group e",
-        "p2": "runner-up group f",
+        "p1": "brazil",
+        "p2": "mexico",
         "date": "July 2, 2018",
         "time": "2:00 PM",
         "time24": "14:00"
     }, {
         "id": "54", //54
-        "p1": "winner group g",
-        "p2": "runner-up group h",
+        "p1": "belgium",
+        "p2": "japan",
         "date": "July 2, 2018",
         "time": "6:00 PM",
         "time24": "18:00"
     }, {
         "id": "55",//55
-        "p1": "winner group f",
-        "p2": "runner-up group e",
+        "p1": "sweden",
+        "p2": "switzerland",
         "date": "July 3, 2018",
         "time": "2:00 PM",
         "time24": "14:00"
     }, {
         "id": "56", //56
-        "p1": "winner group h",
-        "p2": "runner-up group g",
+        "p1": "colombia",
+        "p2": "england",
         "date": "July 3, 2018",
         "time": "6:00 PM",
         "time24": "18:00"
